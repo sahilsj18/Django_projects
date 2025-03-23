@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <a href="{% url 'task_create' %}">Add New Task</a>
+    {% block content %}{% endblock %}
+</body>
+</html>
