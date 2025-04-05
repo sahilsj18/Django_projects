@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-page">
+  <img src="{% static 'images/avatar.jpg' %}" alt="User Avatar" class="avatar">
+  <h2>{{ user.username }}'s Profile</h2>
+  <p>Email: {{ user.email }}</p>
+  <h3>Your Orders</h3>
+  {% for order in orders %}
+    <div class="order-entry">
+      <p>Order #{{ order.id }} - {{ order.date }}</p>
+    </div>
+  {% empty %}
+    <p>No past orders yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

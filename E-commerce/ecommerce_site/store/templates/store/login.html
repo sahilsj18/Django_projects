@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth-hero" style="background-image: url('{% static "images/home-banner.png" %}');">
+  <div class="form-card">
+    <h2>Login to TrendingShop</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>New here? <a href="{% url 'register' %}">Create an account</a></p>
+  </div>
+</div>
+
+{% endblock %}

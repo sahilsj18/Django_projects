@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="auth-hero" style="background-image: url('{% static "images/home-banner.png" %}');">
+  <div class="form-card">
+    <h2>Create Account</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+  </div>
+</div>
+
+{% endblock %}

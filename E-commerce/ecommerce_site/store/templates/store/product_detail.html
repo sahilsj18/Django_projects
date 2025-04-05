@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<div class="product-detail">
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" class="small-img">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+  <p>₹{{ product.price }}</p>
+  <form method="post" action="{% url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+    <label for="size">Size:</label>
+    <select name="size" required>
+      <option value="">Select Size</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+    <a href="{% url 'add_to_cart' product.id %}" class="btn">Add to Cart</a>
+
+  </form>
+</div>
+{% endblock %}
